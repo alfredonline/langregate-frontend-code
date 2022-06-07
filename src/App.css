@@ -1,0 +1,159 @@
+.bgCover {
+  background-position: "center";
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.interest {
+  padding: 12px;
+  background-color: rgba(224, 220, 220, 0.441);
+   border-radius: 6px;
+}
+
+.sideBarStyles {
+  position: fixed;
+  height: 100vh;
+  width: 40%;
+  background-color: white;
+  color: #222;
+  z-index: 100;
+}
+
+@media only screen and (max-width: 600px) {
+  .sideBarStyles {
+    width: 70%;
+  }
+}
+
+.menuFilter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #7c7c7cae;
+  z-index: 50;
+}
+
+
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.removeUnderline {
+  text-decoration: none;
+  color: #222;
+}
+
+.removeUnderlineNotAffectText {
+  text-decoration: none;
+  color: white;
+}
+
+.Languagebox {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+}
+
+.saveVocabItem {
+  padding: 12px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.nonEnglishBox {
+  padding: 12px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.interestItem {
+  border: 1px solid #222;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.bgImage {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.movieContainerBannerItem div {
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+
+.filterArticle {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(34, 34, 34, 0.444);
+}
+
+.REL {
+  position: relative;
+}
+
+.flexSavedContent {
+  display: flex;
+  gap: 7px;
+}
+
+.lengthSaved {
+  color: rgba(34, 34, 34, 0.399);
+}
+
+.contentName {
+  width: 200px;
+  color: #222;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.noContentFound {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(34, 34, 34, 0.715);
+}
+
+.hoverMoveUp:hover {
+  transform: translateY(-2px);
+  transition: all 0.25s ease-in-out;
+}
+
+.hoverMoveUp:active {
+  transform: translateY(2px);
+}
+
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
