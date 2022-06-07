@@ -75,6 +75,7 @@ function ChangeInterestsGrid({ usersInfo }) {
 
   const addItemToArr = (newInterest) => {
     setArrInterests((arrInterests) => [...arrInterests, newInterest]);
+    const addTheItemTodb = await addInterestForUser(newInterest)
   };
 
   const deleteInterestFromArrInterests = async (itemToDelete) => {
@@ -102,7 +103,7 @@ function ChangeInterestsGrid({ usersInfo }) {
         {arrInterests &&
           arrInterests.map((item) => {
             return (
-              <div onClick={() => deleteInterestFromArrInterests(item)}>
+              <div onClick={() => deleteInterestFromArrInterests(item)} key={item.id}>
                 <InterestItem interest={item} />
               </div>
             );
@@ -118,7 +119,7 @@ function ChangeInterestsGrid({ usersInfo }) {
       >
         {potentialInterests.map((item) => {
           return (
-            <div onClick={() => addItemToArr(item)}>
+            <div onClick={() => addItemToArr(item)} key={item}>
               <InterestItem interest={item} />
             </div>
           );

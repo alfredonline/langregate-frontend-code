@@ -114,6 +114,7 @@ function DiscoveryScreen() {
                     lang={item.language}
                     credit={item.link}
                     fullObjOfArticle={item}
+                    key={item.id}
                   />
                 </div>
               );

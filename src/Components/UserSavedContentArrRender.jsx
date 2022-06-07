@@ -40,7 +40,7 @@ function UserSavedContentArrRender({
     } else if (arrToRender && articles && articles.length !== 0) {
       return arrToRender.map((item) => {
         return (
-          <div onClick={() => updateModalFromChild(item)}>
+          <div onClick={() => updateModalFromChild(item)} key={item.id}>
             <ArticleCard
               title={item.articleHeader}
               media={item.articleMedia}
@@ -70,7 +70,7 @@ function UserSavedContentArrRender({
     } else if (arrToRender && movies && movies.length !== 0) {
       return arrToRender.map((item) => {
         return (
-          <div>
+          <div id={item.id}>
             <MediaCard
               bg={item.media}
               link={`/Movies/${item.id}`}
@@ -94,7 +94,7 @@ function UserSavedContentArrRender({
     } else if (arrToRender && series && series.length !== 0) {
       return arrToRender.map((item) => {
         return (
-          <div>
+          <div key={item.id}>
             <MediaCard
               bg={item.media}
               link={`/tv/${item.id}`}

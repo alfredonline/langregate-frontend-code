@@ -25,7 +25,7 @@ function IndividualContent({ typeOfContent }) {
 
     const arr = request.data.split(" ").map((item) => {
       return (
-        <VocabularyCard word={item} lang={data?.original_language}/>
+        <VocabularyCard word={item} lang={data?.original_language} key={item}/>
       );
     });
 
@@ -160,6 +160,7 @@ function IndividualContent({ typeOfContent }) {
               <Grid
                 item
                 sx={{ backgroundColor: "#222", color: "#fff", padding: "10px" }}
+                key={id}
               >
                 {name}
               </Grid>

@@ -47,46 +47,55 @@ function Nav() {
       link: "/Discover-Articles",
       text: "Articles",
       icon: <ArticleIcon />,
+      id: "1"
     },
     {
       link: "/Discover-Movies",
       text: "Movies",
       icon: <MovieCreationIcon />,
+      id: "2"
     },
     {
       link: "/Discover-Series",
       text: "Series",
       icon: <LiveTvIcon />,
+      id: "3"
     },
     {
       link: "/my-lists",
       text: "My Saved Content",
       icon: <StorageIcon />,
+      id: "4"
     },
     {
       link: "/my-vocab",
       text: "Vocabulary",
       icon: <TranslateIcon />,
+      id: "5"
     },
     {
       link: "/about",
       text: "About Langregate",
       icon: <InfoIcon />,
+      id: "6"
     },
     {
       link: "/signup/new",
       text: "Create Account",
       icon: <AddIcon />,
+      id: "7"
     },
     {
       link: usersSignedInStatus ? "logoutUser" : "Signin",
       text: usersSignedInStatus ? "Log out" : "Log In",
       icon: usersSignedInStatus ? <LogoutIcon /> : <LoginIcon />,
+      id: "8"
     },
     {
       link: "/settings",
       text: "Account Settings",
       icon: <SettingsIcon />,
+      id: "7"
     },
   ];
 
@@ -108,7 +117,7 @@ function Nav() {
       </Grid>
       {navItems.map((item) => {
         return (
-          <Grid item lg="12">
+          <Grid item lg="12" key={item.id}>
             <Link to={`${item.link}`} onClick={() => updateStates()}>
               <Button
                 startIcon={item.icon}

@@ -48,7 +48,7 @@ function ArticleFullScreen(props) {
           }}
         >
           {props.overview.split(" ").map((item) => {
-            return <VocabularyCard word={item} lang={props.language} />;
+            return <VocabularyCard word={item} lang={props.language} key={item}/>;
           })}
         </Typography>
       </Grid>

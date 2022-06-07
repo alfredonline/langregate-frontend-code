@@ -39,7 +39,7 @@ function LandingSectionTwo() {
         ) : (
           movies &&
           movies.map((item) => {
-            return <MediaCard bg={item.poster_path} />;
+            return <MediaCard bg={item.poster_path} key={item.id}/>;
           })
         )}
       </MediaCardWrapper>

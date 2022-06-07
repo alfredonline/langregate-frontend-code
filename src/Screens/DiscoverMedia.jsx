@@ -53,6 +53,7 @@ function DiscoverMedia({ searchQuery, typeOfMedia }) {
             link={`/${typeOfMedia}/${item.id}`}
             typeOfContent={typeOfMedia}
             data={item}
+            key={item.id}
           />
         );
       })

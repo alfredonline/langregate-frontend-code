@@ -44,7 +44,7 @@ function LandingSectionThree() {
       >
         {benefits.map(({ header, text, link }) => {
           return (
-            <Grid container lg="5" xs="12" spacing="20px">
+            <Grid container lg="5" xs="12" spacing="20px" key={header}>
               <Grid item>
                 <Typography variant="titleText" sx={{ textAlign: "center" }}>
                   {header}

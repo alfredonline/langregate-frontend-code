@@ -156,7 +156,7 @@ function RegisterScreen() {
             }}
           >
             {usersInterests.map((item) => {
-              return <div className="interest">{item}</div>;
+              return <div className="interest" key={item}>{item}</div>;
             })}
           </Grid>
           <Grid item>

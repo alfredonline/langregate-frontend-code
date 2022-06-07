@@ -103,6 +103,7 @@ function LandingRegisteredUser() {
                     lang={item.language}
                     deleteMode={true}
                     fullObjOfArticle={item}
+                    key={item.id}
                   />
                 </div>
               );
@@ -118,7 +119,7 @@ function LandingRegisteredUser() {
           {moviesToRender &&
             moviesToRender.map((item) => {
               return (
-                  <MediaCard bg={item.poster_path} link={`/movies/${item.id}`} data={item}/>
+                  <MediaCard bg={item.poster_path} link={`/movies/${item.id}`} data={item} key={item.id}/>
               );
             })}
         </FlexWrapper>
@@ -132,7 +133,7 @@ function LandingRegisteredUser() {
           {seriesToRender &&
             seriesToRender.map((item) => {
               return (
-                <MediaCard bg={item.poster_path} link={`/tv/${item.id}`} data={item}/>
+                <MediaCard bg={item.poster_path} link={`/tv/${item.id}`} data={item} key={item.id}/>
               );
             })}
         </FlexWrapper>

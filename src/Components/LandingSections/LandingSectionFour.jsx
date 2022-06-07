@@ -13,7 +13,7 @@ function LandingSectionFour() {
       <Grid container gap="10px">
         {data.map((item) => {
           return (
-            <Grid container lg="5" xs="12" sx={{ border: "1.5px solid #222" }}>
+            <Grid container lg="5" xs="12" sx={{ border: "1.5px solid #222" }} key={item.apiName}>
               <Grid
                 xs="12"
                 sx={{

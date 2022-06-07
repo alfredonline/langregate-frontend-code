@@ -21,11 +21,13 @@ function SettingsScreen() {
     async function getAllData() {
       let checkToken = await checkIfTokenIsValid();
       if (checkToken === "USER CAN PASS") {
-        const data = await axios.get("https://api.langregate.com/api/getAllInfoOfUser");
+        const data = await axios.get(
+          "https://api.langregate.com/api/getAllInfoOfUser"
+        );
         if (data) {
           setUserInfo(data.data);
           setNewTargetLanguage(data.targetLanguage);
-          console.log(data.data)
+          console.log(data.data);
         }
       }
     }
@@ -61,8 +63,11 @@ function SettingsScreen() {
         <Grid container gap="20px" xs="12">
           {settingItems.map((item) => {
             return (
-              <Grid item>
-                <Typography variant="textMdSemiBoldSemiImportant" className="cursorPointer">
+              <Grid item key={item.item}>
+                <Typography
+                  variant="textMdSemiBoldSemiImportant"
+                  className="cursorPointer"
+                >
                   <Link
                     to={`/settings/${item.link}`}
                     className="removeUnderline"
@@ -96,7 +101,9 @@ function SettingsScreen() {
             />
           )}
           {id === "account" && (
-            <DeleteAccountGrid userInfoPassedInEmail={userInfo && userInfo.email} />
+            <DeleteAccountGrid
+              userInfoPassedInEmail={userInfo && userInfo.email}
+            />
           )}
         </Grid>
       </Grid>
