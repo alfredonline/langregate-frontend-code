@@ -6,7 +6,7 @@ import langArr from "../Data/LanguageArrExtended";
 import genreArr from "../Data/GenreArrWithCodes";
 import FlexWrapper from "../Components/FlexWrapper";
 import { Typography } from "@mui/material";
-import convertGenre from "../SmallFunctions/convertGenre";
+import convertGenre from "../Functions/convertGenre";
 import MediaCard from "../Components/Cards/MediaCard";
 import LoadingScreen from "./LoadingScreen";
 import axios from "axios";

@@ -6,7 +6,7 @@ import UserSavedContentBtns from "../Components/UserSavedContentBtns";
 import UserSavedContentArrRender from "../Components/UserSavedContentArrRender";
 import LoadingScreen from "../Screens/LoadingScreen";
 import ModalArticle from "../Screens/ArticleFullScreen";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 
 function UserLists() {
   const [loading, setLoading] = useState(true);

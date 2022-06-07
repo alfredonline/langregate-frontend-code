@@ -1,10 +1,7 @@
-import { BookmarkAdd } from "@mui/icons-material";
-import NewspaperIcon from "@mui/icons-material/Newspaper";
 import { Grid, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import VocabularyCard from "../Components/Cards/VocabularyCard";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
 
 function ArticleFullScreen(props) {
   const [translatedDesc, setTranslatedDesc] = useState(false);

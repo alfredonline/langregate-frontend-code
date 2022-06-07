@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import ArticleCard from "../Components/Cards/NewsItemCard";
 import FlexWrapper from "./FlexWrapper";
-import { Link } from "react-router-dom";
 import MediaCard from "./Cards/MediaCard";
 
 function UserSavedContentArrRender({

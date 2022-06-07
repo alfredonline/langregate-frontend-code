@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ContextUser } from "../ContextUser";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 
 function LogoutUserPage() {
   const navigate = useNavigate();

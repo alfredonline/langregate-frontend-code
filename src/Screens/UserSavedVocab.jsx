@@ -9,7 +9,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 
 function UserSavedVocab() {
   const [words, setWords] = useState([]);

@@ -9,7 +9,7 @@ import ChangeNameGrid from "../Components/Grids/ChangeNameGrid";
 import ChangeInterestsGrid from "../Components/Grids/ChangeInterestsGrid";
 import ChangeTargetLanguageGrid from "../Components/Grids/ChangeTargetLanguageGrid";
 import DeleteAccountGrid from "../Components/Grids/DeleteAccountGrid";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 
 function SettingsScreen() {
   const [userInfo, setUserInfo] = useState();

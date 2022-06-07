@@ -7,7 +7,7 @@ import FlexWrapper from "../Components/FlexWrapper";
 import Title from "../Components/Title";
 import LoadingScreen from "./LoadingScreen";
 import ModalArticle from "./ArticleFullScreen";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 import CenterWrapper from "../Components/CenterWrapper";
 import MediaCard from "../Components/Cards/MediaCard";
 import { Box } from "@mui/system";

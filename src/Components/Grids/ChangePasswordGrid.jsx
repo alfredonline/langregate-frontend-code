@@ -2,7 +2,7 @@ import { Button, Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
 
-import { checkIfTokenIsValid } from "../../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 
 function ChangePasswordGrid() {
   const [currentPassword, setCurrentPassword] = useState();

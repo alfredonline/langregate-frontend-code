@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import axios from "axios";
-import { checkIfTokenIsValid } from "../../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 import InterestItem from "../InterestItem";
 
 function ChangeInterestsGrid({ usersInfo }) {
@@ -73,7 +73,7 @@ function ChangeInterestsGrid({ usersInfo }) {
     }
   }, [usersInfo]);
 
-  const addItemToArr = (newInterest) => {
+  const addItemToArr = async (newInterest) => {
     setArrInterests((arrInterests) => [...arrInterests, newInterest]);
     const addTheItemTodb = await addInterestForUser(newInterest)
   };

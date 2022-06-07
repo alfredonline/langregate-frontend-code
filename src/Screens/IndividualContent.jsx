@@ -5,7 +5,7 @@ import WrapperContainer from "../Components/WrapperContainer";
 import { Typography } from "@mui/material";
 import LoadingScreen from "./LoadingScreen";
 import axios from "axios";
-import { checkIfTokenIsValid } from "../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 import VocabularyCard from "../Components/Cards/VocabularyCard";
 import CenterWrapper from "../Components/CenterWrapper";
 

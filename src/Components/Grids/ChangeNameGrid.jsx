@@ -1,7 +1,7 @@
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
-import { checkIfTokenIsValid } from "../../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 
 function ChangeNameGrid() {
   const [usersNewName, setUsersNewName] = useState("");

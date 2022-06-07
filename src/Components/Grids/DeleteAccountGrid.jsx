@@ -3,7 +3,7 @@ import { TextField, Typography, Button, Grid } from "@mui/material";
 import axios from "axios";
 import { ContextUser } from "../../ContextUser";
 import { useNavigate } from "react-router-dom";
-import { checkIfTokenIsValid } from "../../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 
 function DeleteAccountGrid({ userInfoPassedInEmail }) {
   const { signUserInOut } = useContext(ContextUser);

@@ -13,7 +13,7 @@ import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 import ShareIcon from "@mui/icons-material/Share";
 import axios from "axios";
 import ArticleIcon from "@mui/icons-material/Article";
-import { checkIfTokenIsValid } from "../../SmallFunctions/CheckIfTokenIsValid";
+import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import { Link } from "react-router-dom";
 
