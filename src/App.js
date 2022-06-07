@@ -18,7 +18,6 @@ import LandingUnregisteredUser from "./Screens/LandingUnregisteredUser";
 import UserSavedVocab from "./Screens/UserSavedVocab";
 import Footer from "./Components/Footer";
 import SettingsScreen from "./Screens/SettingsScreen";
-import ContactScreen from "./Screens/ContactScreen";
 import LogoutUserPage from "./Screens/LogoutUserPage";
 import AboutPage from "./Screens/AboutPage";
 import RegisterScreen from "./Screens/RegisterScreen";
@@ -159,8 +158,6 @@ function App() {
               />
 
               <Route path="/Settings" element={<SettingsScreen />} />
-              <Route path="/Contact" element={<ContactScreen />} />
-
               <Route
                 path="/movies/:id"
                 element={<IndividualContent typeOfContent={"movie"} />}
