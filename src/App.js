@@ -21,6 +21,7 @@ import SettingsScreen from "./Screens/SettingsScreen";
 import LogoutUserPage from "./Screens/LogoutUserPage";
 import AboutPage from "./Screens/AboutPage";
 import RegisterScreen from "./Screens/RegisterScreen";
+import ErrorPage from "./Screens/ErrorPage";
 
 const ctaColour = "#4615b2";
 
@@ -131,6 +132,7 @@ function App() {
           <Routes>
             <Route path="/logoutUser" element={<LogoutUserPage />} />
             <Route path="/" element={<Layout />}>
+            <Route path="/testing" element={<ErrorPage />} />
               <Route
                 path="/"
                 element={

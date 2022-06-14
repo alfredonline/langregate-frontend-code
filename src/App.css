@@ -6,7 +6,7 @@
 .interest {
   padding: 12px;
   background-color: rgba(224, 220, 220, 0.441);
-   border-radius: 6px;
+  border-radius: 6px;
 }
 
 .sideBarStyles {
@@ -34,7 +34,41 @@
   z-index: 50;
 }
 
+.UserStatsCard {
+  padding: 12px;
+  min-height: 300px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
 
+
+.UserStatsTextBox {
+  z-index: 5;
+  display: flex;
+  padding: 12px;
+  text-shadow: #222;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.MiniMovieCard {
+  width: 250px;
+  height: 100px;
+  border-radius: 12px;
+  position: relative;
+  border: 2px solid #fff;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
 
 .bgImage {
   position: absolute;
@@ -88,7 +122,6 @@
   cursor: pointer;
 }
 
-
 .cursorPointer {
   cursor: pointer;
 }
@@ -104,7 +137,6 @@
   border-radius: 6px;
   text-align: center;
 }
-
 
 .filterArticle {
   position: fixed;
@@ -127,14 +159,6 @@
 .lengthSaved {
   color: rgba(34, 34, 34, 0.399);
 }
-
-.contentName {
-  width: 200px;
-  color: #222;
-  font-weight: 700;
-  font-size: 18px;
-}
-
 .noContentFound {
   display: flex;
   justify-content: center;
@@ -156,4 +180,25 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.errorImage {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filter {
+  position: absolute;
+  background-color: rgba(34, 34, 34, 0.456);
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.wrapMiniMovies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }

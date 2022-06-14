@@ -14,11 +14,10 @@ function IndividualContent({ typeOfContent }) {
   const [translatedDesc, setTranslatedDesc] = useState();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [currentContent, setCurrentContent] = useState("General Information");
 
   async function FetchThenRenderTranslation(ogLang, overview) {
     let request = await axios.get(
-      `https://api.langregate.com/translate-Description/${ogLang}/${
+      `https://api.langregate.com/${ogLang}/${
         overview
       }`
     );
@@ -39,7 +38,6 @@ function IndividualContent({ typeOfContent }) {
       setIsLoading(true);
       let request = await axios.get(`https://api.langregate.com/collect-content/${typeOfContent}/${id}`);
       setData(request.data);
-      console.log(request.data);
       setIsLoading(false);
       if (request.data.original_language) {
         await FetchThenRenderTranslation(request.data.original_language, request.data.overview);
@@ -52,27 +50,6 @@ function IndividualContent({ typeOfContent }) {
   const [userWantsToSeeContentEnglish, setUserWantsToSeeContentEnglish] =
     useState(false);
 
-  const [contentSaved, setContentSaved] = useState(false);
-  const [vocabSaved, setVocabSaved] = useState(false);
-  const [savingContent, setSavingContent] = useState(false);
-
-  const saveItemToUsersCollection = async () => {
-    let checkToken = checkIfTokenIsValid();
-
-    if (checkToken === "USER CAN PASS") {
-      setSavingContent(true);
-      const sentData = await axios.post(
-        `https://api.langregate.com/api/add${
-          typeOfContent === "tv" ? "Series" : "Movie"
-        }ToUsersCollection`,
-        {
-          content: data,
-        }
-      );
-      setSavingContent(false);
-      setContentSaved(true);
-    }
-  };
 
   if (
     (data &&
@@ -114,10 +91,6 @@ function IndividualContent({ typeOfContent }) {
     data && data.backdrop_path
   }`;
 
-  const contentBtns = [
-    "General Information",
-    "Description in original language",
-  ];
 
   const returnOverview = () => {
     return (
@@ -170,17 +143,6 @@ function IndividualContent({ typeOfContent }) {
       </Grid>
     );
   };
-
-  async function updateContent(content) {
-    if (content === "Description in original language") {
-      const dataFetch = await FetchThenRenderTranslation();
-      if (dataFetch === "success") {
-        setCurrentContent("Description in original language");
-      }
-    } else {
-      setCurrentContent("General Information");
-    }
-  }
 
   return (
     <CenterWrapper>

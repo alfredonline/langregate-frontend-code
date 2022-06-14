@@ -33,7 +33,6 @@ function DiscoverMedia({ searchQuery, typeOfMedia }) {
           console.log(err);
         });
       setData(request.data);
-      console.log(request.data)
       setIsLoading(false);
     }
 

@@ -11,6 +11,8 @@ import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 import CenterWrapper from "../Components/CenterWrapper";
 import MediaCard from "../Components/Cards/MediaCard";
 import { Box } from "@mui/system";
+import UserStats from "../Components/UserStats";
+import MiniMediaCard from "../Components/MiniMediaCard";
 
 function LandingRegisteredUser() {
   const [loading, setLoading] = useState(true);
@@ -20,6 +22,7 @@ function LandingRegisteredUser() {
   const [targetLanguage, setTargetLanguage] = useState();
   const [showModal, setShowModal] = useState(false);
   const [currentModal, setCurrentModal] = useState();
+  const [userStats, setUserStats] = useState();
 
   const updateModalState = (item) => {
     setShowModal(!showModal);
@@ -63,6 +66,7 @@ function LandingRegisteredUser() {
 
         setMoviesToRender(data.data.usersMovies);
         setSeriesToRender(data.data.usersSeries);
+        setUserStats(data.data.userStats[0]);
 
         if (!usersName) {
           setUsersName(data.data.usersName);
@@ -80,6 +84,21 @@ function LandingRegisteredUser() {
   return (
     <>
       <CenterWrapper>
+        <UserStats statsObj={userStats} name={usersName} />
+        <div className="wrapMiniMovies">
+          {moviesToRender &&
+            moviesToRender.map((item) => {
+              return (
+                <MiniMediaCard
+                  bg={`https://www.themoviedb.org/t/p/w1280/${
+                    item.backdrop_path || item.poster_path
+                  }`}
+                  movieName={item.original_title}
+                  link={item.id}
+                />
+              );
+            })}
+        </div>
         {articlesToRender && articlesToRender.length !== 0 && (
           <>
             <Box sx={{ marginTop: "10px" }} />
@@ -88,30 +107,32 @@ function LandingRegisteredUser() {
               mainHeading={`Hi ${usersName}`}
               secondHeading={`Here are some articles in ${targetLanguage} based on your interests`}
             />
+            <FlexWrapper>
+              {articlesToRender &&
+                articlesToRender.map((item) => {
+                  return (
+                    <div onClick={() => updateModalState(item)}>
+                      <NewsItemCard
+                        title={item.title}
+                        media={item.media}
+                        overview={item.summary}
+                        id={item._id}
+                        lang={item.language}
+                        deleteMode={true}
+                        fullObjOfArticle={item}
+                        key={item.id}
+                      />
+                    </div>
+                  );
+                })}
+            </FlexWrapper>
           </>
         )}
-        <FlexWrapper sx={{ paddingBottom: "" }}>
-          {articlesToRender &&
-            articlesToRender.map((item) => {
-              return (
-                <div onClick={() => updateModalState(item)}>
-                  <NewsItemCard
-                    title={item.title}
-                    media={item.media}
-                    overview={item.summary}
-                    id={item._id}
-                    lang={item.language}
-                    deleteMode={true}
-                    fullObjOfArticle={item}
-                    key={item.id}
-                  />
-                </div>
-              );
-            })}
-        </FlexWrapper>
         <br /> <br /> <br />
         <Title
-          mainHeading={`Movies based on your target language`}
+          mainHeading={`Hi there ${
+            usersName && usersName
+          }, here are some movies in ${targetLanguage && targetLanguage}`}
           secondHeading={`To change your target language, go to settings`}
           sx={{ marginTop: "30px", marginBottom: "30px" }}
         />
@@ -119,13 +140,20 @@ function LandingRegisteredUser() {
           {moviesToRender &&
             moviesToRender.map((item) => {
               return (
-                  <MediaCard bg={item.poster_path} link={`/movies/${item.id}`} data={item} key={item.id}/>
+                <MediaCard
+                  bg={item.poster_path}
+                  link={`/movies/${item.id}`}
+                  data={item}
+                  key={item.id}
+                />
               );
             })}
         </FlexWrapper>
         <br /> <br /> <br />
         <Title
-          mainHeading={`Series based on your target language`}
+          mainHeading={`Hi there ${
+            usersName && usersName
+          }, here are some series in ${targetLanguage && targetLanguage}`}
           secondHeading={`To change your target language, go to settings`}
           sx={{ marginTop: "30px", marginBottom: "30px" }}
         />
@@ -133,7 +161,12 @@ function LandingRegisteredUser() {
           {seriesToRender &&
             seriesToRender.map((item) => {
               return (
-                <MediaCard bg={item.poster_path} link={`/tv/${item.id}`} data={item} key={item.id}/>
+                <MediaCard
+                  bg={item.poster_path}
+                  link={`/tv/${item.id}`}
+                  data={item}
+                  key={item.id}
+                />
               );
             })}
         </FlexWrapper>
