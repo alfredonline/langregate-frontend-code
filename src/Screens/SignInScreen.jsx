@@ -21,7 +21,7 @@ function SignInScreen() {
 
   const sendInformationToApi = async () => {
     const infoSent = await axios
-      .post("https://api.langregate.com/api/login", {
+      .post("/api/login", {
         email: `${usersEmail}`,
         password: `${usersPass}`,
       })

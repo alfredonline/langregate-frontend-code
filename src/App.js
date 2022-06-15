@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DiscoveryScreen from "./Screens/DiscoveryScreen";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Nav from "./Components/Nav";
@@ -132,7 +128,6 @@ function App() {
           <Routes>
             <Route path="/logoutUser" element={<LogoutUserPage />} />
             <Route path="/" element={<Layout />}>
-            <Route path="/testing" element={<ErrorPage />} />
               <Route
                 path="/"
                 element={
@@ -178,6 +173,7 @@ function App() {
               </Route>
             </Route>
             <Route path="/signin" element={<SignInScreen />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </ContextUser.Provider>
       </Router>

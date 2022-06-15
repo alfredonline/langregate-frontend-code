@@ -42,10 +42,28 @@
   flex-direction: column;
   gap: 10px;
   position: relative;
-  justify-content: center;
-  align-items: center;
+  color: #fff;
+  
 }
 
+.userStatsFilter {
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4143458e,
+    #2325264c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 .UserStatsTextBox {
   z-index: 5;
@@ -57,17 +75,38 @@
   flex-wrap: wrap;
 }
 
+.wrapMiniMovies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
 .MiniMovieCard {
-  width: 250px;
+  width: 300px;
   height: 100px;
   border-radius: 12px;
   position: relative;
-  border: 2px solid #fff;
   z-index: 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 12px;
+}
+
+.MiniMovieCardHeader {
+  font-size: 14px;
+  padding-left: 12px;
+  width: 150px;
+  overflow: hidden;
+  color: #222;
+  font-weight: 600;
+}
+
+.MiniMovieCardImg {
+  width: 100px;
+  height: 100px;
+  border-radius: inherit;
 }
 
 .bgImage {
@@ -182,23 +221,53 @@
   gap: 10px;
 }
 
-.errorImage {
-  width: 60%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.filter {
-  position: absolute;
-  background-color: rgba(34, 34, 34, 0.456);
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-}
-
-.wrapMiniMovies {
+.MiniMovieCardGenres {
+  padding: 12px;
   display: flex;
+  gap: 10px;
+  width: 150px;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+}
+
+.MiniMovieCardGenre {
+  font-size: 14px;
+  color: rgba(34, 34, 34, 0.479);
+}
+
+.SavedVocabCardWrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top:40px;
+}
+
+.SavedVocabCard {
+  padding: 12px;
+  width: 200px;
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.deleteVocab {
+  color: #2325268f;
+  cursor: pointer;
+}
+
+.SavedVocabCardTrans {
+  font-size: 14px;
+  color: #2325269a;
+}
+
+.SavedVocabCardEng {
+  font-weight: 600;
+  color: #222;
+}
+
+.hide {
+  display: none;
 }

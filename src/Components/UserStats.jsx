@@ -1,23 +1,24 @@
 import { Paper, Typography } from "@mui/material";
 import React from "react";
 
-function UserStats({ name, tl, statsObj }) {
-  const Background =
-    "https://images.pexels.com/photos/7991327/pexels-photo-7991327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+function UserStats({ movieArr, statsObj }) {
+  console.log(movieArr);
+  const bg = `https://www.themoviedb.org/t/p/w1280${
+    movieArr[Math.floor(Math.random() * movieArr.length)].backdrop_path ||
+    movieArr[Math.floor(Math.random() * movieArr.length)].poster_path
+  }`;
+
   return (
-    <Paper
+    <div
       className="UserStatsCard bgCover"
-      style={{ backgroundImage: "url(" + Background + ")" }}
+      style={{ backgroundImage: "url(" + bg + ")" }}
     >
       <div className="UserStatsTextBox">
         <Typography
           variant="textMdSemiBoldSemiImportant"
           sx={{
             color: "#fff",
-            fontWeight: "600",
             fontSize: "22px",
-            textShadow: ".5px .5px 10px #222",
-            
           }}
         >
           {statsObj.lengthOfArticles.length} saved articles.
@@ -27,7 +28,6 @@ function UserStats({ name, tl, statsObj }) {
           sx={{
             color: "#fff",
             fontSize: "22px",
-            textShadow: ".5px .5px 10px #222",
           }}
         >
           {statsObj.lengthOfMovies.length} saved movies.
@@ -37,15 +37,14 @@ function UserStats({ name, tl, statsObj }) {
           sx={{
             color: "#fff",
             fontSize: "22px",
-            textShadow: ".5px .5px 10px #222",
           }}
         >
           {statsObj.lengthOfSeries.length} saved series.
         </Typography>
       </div>
 
-      <div className="userStatsWhiteFilter"></div>
-    </Paper>
+      <div className="userStatsFilter"></div>
+    </div>
   );
 }
 

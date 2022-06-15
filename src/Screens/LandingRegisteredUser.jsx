@@ -55,6 +55,7 @@ function LandingRegisteredUser() {
 
         setArticlesToRender(data.data.usersArticles);
         setTargetLanguage(data.data.targetLanguage);
+        console.log(data.data.usersMovies);
 
         if (data.data.usersMovies) {
           data.data.usersMovies.length = 9;
@@ -84,7 +85,8 @@ function LandingRegisteredUser() {
   return (
     <>
       <CenterWrapper>
-        <UserStats statsObj={userStats} name={usersName} />
+        <UserStats statsObj={userStats} movieArr={moviesToRender && moviesToRender}/>
+        <Title mainHeading={`Movies in ${targetLanguage} for ${usersName}`} />
         <div className="wrapMiniMovies">
           {moviesToRender &&
             moviesToRender.map((item) => {
@@ -95,6 +97,7 @@ function LandingRegisteredUser() {
                   }`}
                   movieName={item.original_title}
                   link={item.id}
+                  genres={item.genre_ids}
                 />
               );
             })}
@@ -134,7 +137,7 @@ function LandingRegisteredUser() {
             usersName && usersName
           }, here are some movies in ${targetLanguage && targetLanguage}`}
           secondHeading={`To change your target language, go to settings`}
-          sx={{ marginTop: "30px", marginBottom: "30px" }}
+          sx={{ marginBottom: "30px" }}
         />
         <FlexWrapper>
           {moviesToRender &&
