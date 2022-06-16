@@ -43,7 +43,6 @@
   gap: 10px;
   position: relative;
   color: #fff;
-  
 }
 
 .userStatsFilter {
@@ -238,7 +237,7 @@
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  padding-top:40px;
+  padding-top: 40px;
 }
 
 .SavedVocabCard {
@@ -246,7 +245,7 @@
   width: 200px;
   height: 50px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-  rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -271,3 +270,11 @@
 .hide {
   display: none;
 }
+
+.apiCreditBox {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
