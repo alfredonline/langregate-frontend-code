@@ -13,7 +13,7 @@ function LandingSectionTwo() {
   useEffect(() => {
     async function FetchRandomMovies() {
       const data = await axios
-        .get("/getFilms")
+        .get("https://api.langregate.com/getFilms")
         .catch((err) => {
           console.log(err);
         });

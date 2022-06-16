@@ -133,9 +133,7 @@ function LandingRegisteredUser() {
         )}
         <br /> <br /> <br />
         <Title
-          mainHeading={`Hi there ${
-            usersName && usersName
-          }, here are some movies in ${targetLanguage && targetLanguage}`}
+          mainHeading={`Here are some movies in ${targetLanguage && targetLanguage}`}
           secondHeading={`To change your target language, go to settings`}
           sx={{ marginBottom: "30px" }}
         />
@@ -154,9 +152,7 @@ function LandingRegisteredUser() {
         </FlexWrapper>
         <br /> <br /> <br />
         <Title
-          mainHeading={`Hi there ${
-            usersName && usersName
-          }, here are some series in ${targetLanguage && targetLanguage}`}
+          mainHeading={`Here are some series in ${targetLanguage && targetLanguage}`}
           secondHeading={`To change your target language, go to settings`}
           sx={{ marginTop: "30px", marginBottom: "30px" }}
         />
