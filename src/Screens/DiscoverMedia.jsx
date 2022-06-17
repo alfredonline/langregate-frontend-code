@@ -24,7 +24,7 @@ function DiscoverMedia({ searchQuery, typeOfMedia }) {
     async function callData() {
       let request = await axios
         .get(
-          `https://api.langregate.com/${searchQuery}-genres/${preferredLanguage}/${convertGenre(
+          `/${searchQuery}-genres/${preferredLanguage}/${convertGenre(
             genreArr,
             currentGenre
           )}`

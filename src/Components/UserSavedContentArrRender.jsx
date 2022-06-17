@@ -108,7 +108,6 @@ function UserSavedContentArrRender({
   };
 
   return (
-    <>
       <Grid container sx={{ marginTop: "50px" }}>
         <FlexWrapper>
           {arrName === "articles" && returnArticles()}
@@ -116,7 +115,6 @@ function UserSavedContentArrRender({
           {arrName === "series" && returnSeries()}
         </FlexWrapper>
       </Grid>
-    </>
   );
 }
 

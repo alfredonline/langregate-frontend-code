@@ -1,5 +1,6 @@
 {
   "name": "material",
+  "proxy": "http://localhost:3080",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

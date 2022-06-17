@@ -18,6 +18,7 @@ function UserLists() {
   const [movies, setMovies] = useState();
   const [series, setSeries] = useState();
 
+
   const updateModalState = (item) => {
     setShowModal(!showModal);
     setCurrentModal(
@@ -44,7 +45,7 @@ function UserLists() {
       setLoading(true);
       let checkToken = await checkIfTokenIsValid();
       if (checkToken === "USER CAN PASS") {
-        const data = await axios.get("https://api.langregate.com/api/viewSavedContent")
+        const data = await axios.get("https://api.langregate.com/api/viewSavedContent");
         setUsersName(data.data.usersName);
         setArticles(data.data.articles);
         setMovies(data.data.movies);
@@ -71,31 +72,27 @@ function UserLists() {
   }
 
   return (
-    <>
-      <WrapperContainer>
-        <SavedContentUserInfo
-          nameOfUser={`${usersName}`}
-          arrName={arrNameToPassDown}
-        />
-        <UserSavedContentBtns
-          changeArrFromChild={(value) => {
-            setArrNameToPassDown(value);
-          }}
-          lengthOne={articles && articles.length}
-          lengthTwo={movies && movies.length}
-          lengthThree={series && series.length}
-        />
+    <WrapperContainer>
+      <SavedContentUserInfo
+        nameOfUser={`${usersName}`}
+        arrName={arrNameToPassDown}
+      />
+      <UserSavedContentBtns
+        changeArrFromChild={(value) => {
+          setArrNameToPassDown(value);
+        }}
+        lengthOne={articles && articles.length}
+        lengthTwo={movies && movies.length}
+        lengthThree={series && series.length}
+      />
 
-        <UserSavedContentArrRender
-          arrName={arrNameToPassDown}
-          articles={articles}
-          movies={movies}
-          series={series}
-          updateModalFromChild={(itemPassedUp) =>
-            updateModalState(itemPassedUp)
-          }
-        />
-      </WrapperContainer>
+      <UserSavedContentArrRender
+        arrName={arrNameToPassDown}
+        articles={articles}
+        movies={movies}
+        series={series}
+        updateModalFromChild={(itemPassedUp) => updateModalState(itemPassedUp)}
+      />
       {showModal && currentModal}
       {showModal && (
         <div
@@ -103,7 +100,7 @@ function UserLists() {
           onClick={() => setShowModal(false)}
         ></div>
       )}
-    </>
+    </WrapperContainer>
   );
 }
 
