@@ -17,7 +17,7 @@ function IndividualContent({ typeOfContent }) {
 
   async function FetchThenRenderTranslation(ogLang, overview) {
     let request = await axios.get(
-      `https://api.langregate.com/${ogLang}/${
+      `https://api.langregate.com/translate-description/${ogLang}/${
         overview
       }`
     );

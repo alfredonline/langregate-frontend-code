@@ -34,43 +34,24 @@
   z-index: 50;
 }
 
-.UserStatsCard {
-  padding: 12px;
-  min-height: 300px;
+.RegisteredUserLandingBanner {
+  min-height: 450px;
   margin-top: 20px;
   display: flex;
-  flex-direction: column;
   gap: 10px;
   position: relative;
   color: #fff;
-}
-
-.userStatsFilter {
-  background: #232526; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #414345,
-    #232526
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #4143458e,
-    #2325264c
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.UserStatsTextBox {
-  z-index: 5;
-  display: flex;
-  padding: 12px;
-  text-shadow: #222;
+  justify-content: space-between;
+  overflow: hidden;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.moviesFlex {
+  display: flex;
   gap: 20px;
+  padding: 20px;
+  z-index: 8;
   flex-wrap: wrap;
 }
 
@@ -79,6 +60,79 @@
   flex-wrap: wrap;
   gap: 40px;
 }
+
+@media only screen and (max-width: 600px) {
+  .RegisteredUserLandingBannerTextBox {
+    text-align: center;
+    display: flex;
+  }
+
+  .moviesFlex {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    z-index: 8;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .wrapMiniMovies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+}
+
+
+.RegisteredUserLandingBanner, .userStatsFilter {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.userStatsFilter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 120%;
+  background: rgb(255,255,255);
+  background: -moz-linear-gradient(180deg, rgba(255,255,255,0) 44%, rgba(255,255,255,1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(255,255,255,0) 44%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0) 44%, rgba(255,255,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#ffffff",GradientType=1); 
+  z-index: 5;
+}
+
+.bgFilterBlack {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.536);
+  z-index: 1;
+}
+
+.backgroundRegisteredUser {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  filter: grayscale(50%);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /* z-index: 8; */
+}
+
+.RegisteredUserLandingBannerTextBox {
+  z-index: 10;
+  display: flex;
+  color: #fff;
+  padding: 50px;
+  gap: 20px;
+  flex-direction: column;
+  
+}
+
 
 .MiniMovieCard {
   width: 300px;

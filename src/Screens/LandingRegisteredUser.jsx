@@ -11,8 +11,9 @@ import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 import CenterWrapper from "../Components/CenterWrapper";
 import MediaCard from "../Components/Cards/MediaCard";
 import { Box } from "@mui/system";
-import UserStats from "../Components/UserStats";
 import MiniMediaCard from "../Components/MiniMediaCard";
+import SmallTitle from "../Components/SmallTitle";
+import RegisteredUserLandingBanner from "../Components/RegisteredUserLandingBanner";
 
 function LandingRegisteredUser() {
   const [loading, setLoading] = useState(true);
@@ -85,8 +86,13 @@ function LandingRegisteredUser() {
   return (
     <>
       <CenterWrapper>
-        <UserStats statsObj={userStats} movieArr={moviesToRender && moviesToRender}/>
-        <Title mainHeading={`Movies in ${targetLanguage} for ${usersName}`} />
+        <RegisteredUserLandingBanner
+          movieArr={moviesToRender && moviesToRender}
+          statsObj={userStats && userStats}
+          targetLanguage={targetLanguage && targetLanguage}
+          name={usersName && usersName}
+        />
+        <SmallTitle heading={`Movies in ${targetLanguage} for ${usersName}`} />
         <div className="wrapMiniMovies">
           {moviesToRender &&
             moviesToRender.map((item) => {
@@ -133,7 +139,9 @@ function LandingRegisteredUser() {
         )}
         <br /> <br /> <br />
         <Title
-          mainHeading={`Here are some movies in ${targetLanguage && targetLanguage}`}
+          mainHeading={`Here are some movies in ${
+            targetLanguage && targetLanguage
+          }`}
           secondHeading={`To change your target language, go to settings`}
           sx={{ marginBottom: "30px" }}
         />
@@ -152,7 +160,9 @@ function LandingRegisteredUser() {
         </FlexWrapper>
         <br /> <br /> <br />
         <Title
-          mainHeading={`Here are some series in ${targetLanguage && targetLanguage}`}
+          mainHeading={`Here are some series in ${
+            targetLanguage && targetLanguage
+          }`}
           secondHeading={`To change your target language, go to settings`}
           sx={{ marginTop: "30px", marginBottom: "30px" }}
         />

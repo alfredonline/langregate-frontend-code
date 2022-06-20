@@ -59,6 +59,12 @@ const theme = createTheme({
       padding: "0px",
     },
 
+    smallTitle: {
+      fontWeight: 600,
+      fontSize: "20px",
+      color: "#222"
+    },
+
     errorText: {
       fontSize: "22px",
       color: "red",

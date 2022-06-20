@@ -7,7 +7,7 @@ import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 import axios from "axios";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 
-function MediaCard({ bg, link, typeOfContent, data, deleteActivate }) {
+function MediaCard({ bg, link, typeOfContent, data, deleteActivate, widthPassedIn, heightPassedIn }) {
   bg = `https://image.tmdb.org/t/p/w1280/${bg}`;
 
   const [savingContent, setSavingContent] = useState(false);
@@ -98,8 +98,8 @@ function MediaCard({ bg, link, typeOfContent, data, deleteActivate }) {
       <Link to={`${link}`} className="removeUnderlineNotAffectText">
         <Paper
           sx={{
-            width: "200px",
-            height: "280px",
+            width: widthPassedIn ? widthPassedIn : "200px",
+            height: heightPassedIn ? heightPassedIn : "280px",
             backgroundImage: "url(" + `${bg}` + ")",
             position: "relative",
           }}

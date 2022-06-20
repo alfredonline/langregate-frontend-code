@@ -43,7 +43,7 @@ function DiscoveryScreen() {
   useEffect(() => {
     async function callData() {
       let request = await axios
-        .get(`/news/${preferredLanguage}/${preferredTopic}`)
+        .get(`https://api.langregate.com/news/${preferredLanguage}/${preferredTopic}`)
         .catch((err) => {
           console.log(err);
         });
