@@ -48,7 +48,9 @@ function LandingRegisteredUser() {
       setLoading(true);
       let checkToken = await checkIfTokenIsValid();
       if (checkToken === "USER CAN PASS") {
-        const data = await axios.get("https://api.langregate.com/api/viewCuratedContent");
+        const data = await axios.get(
+          "https://api.langregate.com/api/viewCuratedContent"
+        );
 
         if (data.data.usersArticles) {
           data.data.usersArticles.length = 6;
@@ -56,7 +58,6 @@ function LandingRegisteredUser() {
 
         setArticlesToRender(data.data.usersArticles);
         setTargetLanguage(data.data.targetLanguage);
-        console.log(data.data.usersMovies);
 
         if (data.data.usersMovies) {
           data.data.usersMovies.length = 9;

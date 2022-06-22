@@ -1,7 +1,7 @@
 import { Typography, Button } from "@mui/material";
 import React from "react";
-import MediaCard from "../Components/Cards/MediaCard";
-import useMediaQuery from '@mui/material/useMediaQuery';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { Link } from "react-router-dom"
 
 function RegisteredUserLandingBanner({
   movieArr,
@@ -11,7 +11,7 @@ function RegisteredUserLandingBanner({
 }) {
   const genRandNum = () => Math.random() * movieArr.length;
 
-  const matches = useMediaQuery('(max-width:600px)');
+  const matches = useMediaQuery("(max-width:600px)");
 
   const bg = `https://www.themoviedb.org/t/p/w1280${
     movieArr[Math.floor(genRandNum())].backdrop_path ||
@@ -34,34 +34,14 @@ function RegisteredUserLandingBanner({
         <Typography sx={{ color: "#fefefe", fontSize: "18px" }}>
           You have saved {statsObj && statsObj.lengthOfMovies.length} movies
         </Typography>
-        <Button variant="ctaMain" sx={{ width: !matches && "250px", display: matches && "none" }} className="hideBtn">
-          Discover Movies
+        <Button
+          variant="ctaMain"
+          sx={{ width: !matches && "250px", display: matches && "none" }}
+          className="hideBtn"
+        >
+          <Link to="/Discover-Movies" className="removeUnderlineNotAffectText">Discover Movies</Link>
         </Button>
       </div>
-      <div className="moviesFlex">
-        <div>
-          <MediaCard
-            widthPassedIn={"150px"}
-            heightPassedIn={"150px"}
-            bg={movieArr[1].backdrop_path || movieArr[1].poster_path}
-          />
-        </div>
-        <div>
-          <MediaCard
-            widthPassedIn={"150px"}
-            heightPassedIn={"150px"}
-            bg={movieArr[2].backdrop_path || movieArr[2].poster_path}
-          />
-        </div>
-        <div>
-          <MediaCard
-            widthPassedIn={"150px"}
-            heightPassedIn={"150px"}
-            bg={movieArr[3].backdrop_path || movieArr[3].poster_path}
-          />
-        </div>
-      </div>
-
       <div className="userStatsFilter"></div>
       <div className="bgFilterBlack"></div>
     </div>
