@@ -349,3 +349,8 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.registerScreenText {
+  overflow-y: auto;
+  overflow-x: hidden;
+}

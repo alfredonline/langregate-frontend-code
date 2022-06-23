@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import CenterWrapper from "../Components/CenterWrapper";
 import Grid from "@mui/material/Grid";
 import { Button, TextField, Typography } from "@mui/material";
 import { Autocomplete } from "@mui/material";
@@ -53,8 +52,6 @@ function RegisterScreen() {
         console.log(err);
       });
 
-    console.log(infoSent);
-
     if (infoSent.data.status === "User added without problems") {
       setUserCanGoToLogin(true);
     }
@@ -64,123 +61,129 @@ function RegisterScreen() {
     }
   };
 
+  const sideImage =
+    "https://images.unsplash.com/photo-1606937295547-bc0f668595b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80";
+
   return (
-    <CenterWrapper>
-      <Grid container sx={{ paddingTop: "40px", display: "flex", gap: "40px", justifyContent: "center", marginTop: "80px", paddingBottom: "80px"}}>
-        <Grid
-          container
-          sx={{ display: "flex", flexDirection: "column", gap: "40px" }}
-          lg="4"
-          sm="12"
-        >
-          <Grid item>
-            <TextField
-              sx={{ width: 300 }}
-              onChange={(e) => {
-                setUsersName(e.target.value);
-              }}
-              required
-              variant="outlined"
-              label="Name"
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              sx={{ width: 300 }}
-              required
-              onChange={(e) => {
-                setUsersEmail(e.target.value);
-              }}
-              label="Email"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item>
-            <TextField
-              type="Password"
-              onChange={(e) => {
-                setUsersPassword(e.target.value);
-              }}
-              label="Password"
-              sx={{ width: 300 }}
-              variant="outlined"
-              required
-            />
-          </Grid>
+    <Grid container sx={{ height: "100vh" }}>
+      <Grid
+        item
+        lg="6"
+        xs={false}
+        style={{ backgroundImage: "url(" + sideImage + ")" }}
+        className="registerScreenSideImage bgCover"
+      />
+      <Grid
+        item
+        lg="6"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px",
+          padding: "80px",
+          alignItems: "center",
+          height: "100vh",
+        }}
+        className="registerScreenText"
+      >
+        <Grid item>
+          <TextField
+            sx={{ width: 300 }}
+            onChange={(e) => {
+              setUsersName(e.target.value);
+            }}
+            required
+            variant="outlined"
+            label="Name"
+          />
+        </Grid>
+        <Grid item>
+          <TextField
+            sx={{ width: 300 }}
+            required
+            onChange={(e) => {
+              setUsersEmail(e.target.value);
+            }}
+            label="Email"
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item>
+          <TextField
+            type="Password"
+            onChange={(e) => {
+              setUsersPassword(e.target.value);
+            }}
+            label="Password"
+            sx={{ width: 300 }}
+            variant="outlined"
+            required
+          />
+        </Grid>
+        <Grid item>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={languages}
+            sx={{ width: 300 }}
+            onChange={(e) => {
+              setUsersPreferredLang(e.target.lastChild.data);
+            }}
+            renderInput={(params) => (
+              <TextField {...params} label="Language I'm learning" required />
+            )}
+          />
+        </Grid>
+        <Grid item>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={potentialInterests}
+            sx={{ width: 300 }}
+            onChange={(e) => {
+              updateUsersInterests(e.target.lastChild.data);
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Things I'm interested in"
+                required
+              />
+            )}
+          />
         </Grid>
         <Grid
-          container
-          sx={{ display: "flex", flexDirection: "column", gap: "40px" }}
-          lg="4"
-          sm="12"
+          item
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "10px",
+            width: "350px"
+          }}
         >
-          <Grid item>
-            <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={languages}
-              sx={{ width: 300 }}
-              onChange={(e) => {
-                setUsersPreferredLang(e.target.lastChild.data);
-              }}
-              renderInput={(params) => (
-                <TextField {...params} label="Language I'm learning" required />
-              )}
-            />
-          </Grid>
-          <Grid item>
-            <Autocomplete
-              disablePortal
-              id="combo-box-demo"
-              options={potentialInterests}
-              sx={{ width: 300 }}
-              onChange={(e) => {
-                updateUsersInterests(e.target.lastChild.data);
-              }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Things I'm interested in"
-                  required
-                />
-              )}
-            />
-          </Grid>
-          <Grid
-            item
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              width: "300px",
-              gap: "10px",
-            }}
-          >
-            {usersInterests.map((item) => {
-              return <div className="interest" key={item}>{item}</div>;
-            })}
-          </Grid>
-          <Grid item>
-            <Button variant="ctaMain" onClick={() => sendInformationToApi()}>
-              {userCanGoToLogin ? (
-                <Link to="/SignIn" className="removeUnderlineNotAffectText">
-                  Log in
-                </Link>
-              ) : (
-                <Link to="/signup/new" className="removeUnderlineNotAffectText">Create Account</Link>
-              )}
-            </Button>
-            <Grid item>
-              <Typography
-                varian="errorText"
-                className="removeUnderlineNotAffectText"
-              >
-                {errMessage}
-              </Typography>
-            </Grid>
-          </Grid>
+          {usersInterests.map((item) => {
+            return (
+              <div className="interest" key={item}>
+                {item}
+              </div>
+            );
+          })}
+        </Grid>
+        <Grid item>
+          <Button variant="ctaMain" onClick={() => sendInformationToApi()} sx={{width: "300px"}}>
+            {userCanGoToLogin ? (
+              <Link to="/SignIn" className="removeUnderlineNotAffectText">
+                Log in
+              </Link>
+            ) : (
+              <Link to="/signup/new" className="removeUnderlineNotAffectText">
+                Create Account
+              </Link>
+            )}
+          </Button>
         </Grid>
       </Grid>
-    </CenterWrapper>
+    </Grid>
   );
 }
 

@@ -62,7 +62,7 @@ const theme = createTheme({
     smallTitle: {
       fontWeight: 600,
       fontSize: "20px",
-      color: "#222"
+      color: "#222",
     },
 
     errorText: {
@@ -145,7 +145,6 @@ function App() {
                 }
               />
               <Route path="/about" element={<AboutPage />} />
-
               <Route path="/Discover-Articles" element={<DiscoveryScreen />} />
               <Route
                 path="/Discover-Movies"
@@ -169,16 +168,14 @@ function App() {
                 path="/tv/:id"
                 element={<IndividualContent typeOfContent={"tv"} />}
               />
-              <Route path="/signup/new" element={<RegisterScreen />} />
-
+              <Route path="/signin" element={<SignInScreen />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path="/my-lists" element={<UserLists />} />
                 <Route path="/my-vocab" element={<UserSavedVocab />} />
-
                 <Route path="/settings/:id" element={<SettingsScreen />} />
               </Route>
             </Route>
-            <Route path="/signin" element={<SignInScreen />} />
+            <Route path="/signup/new" element={<RegisterScreen />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </ContextUser.Provider>
