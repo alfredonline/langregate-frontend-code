@@ -7,7 +7,7 @@ import LoadingScreen from "../../Screens/LoadingScreen";
 import MediaCard from "../Cards/MediaCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
 function TrendingMovies({ region, country, lang }) {
   const [movies, setMovies] = useState([]);
@@ -16,9 +16,11 @@ function TrendingMovies({ region, country, lang }) {
 
   useEffect(() => {
     async function getTrendingMovies() {
-      const data = await axios.get(`https://api.langregate.com/getFilms/getTrending/${region}`).catch((err) => {
-        console.log(err);
-      });
+      const data = await axios
+        .get(`https://api.langregate.com/getTrending/${region}`)
+        .catch((err) => {
+          console.log(err);
+        });
       setMovies(data.data);
       setIsLoading(false);
     }
@@ -30,7 +32,7 @@ function TrendingMovies({ region, country, lang }) {
     <Grid sx={{ minHeight: "200px" }}>
       <Title
         mainHeading={`Trending Movies in ${country} in ${lang}`}
-        icon={<TrendingUpIcon />} 
+        icon={<TrendingUpIcon />}
         secondHeading={
           "Langregate makes it easy to find new, interesting content in a variety of languages."
         }
