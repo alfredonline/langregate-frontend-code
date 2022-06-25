@@ -168,7 +168,6 @@ function App() {
                 path="/tv/:id"
                 element={<IndividualContent typeOfContent={"tv"} />}
               />
-              <Route path="/signin" element={<SignInScreen />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path="/my-lists" element={<UserLists />} />
                 <Route path="/my-vocab" element={<UserSavedVocab />} />
@@ -176,6 +175,7 @@ function App() {
               </Route>
             </Route>
             <Route path="/signup/new" element={<RegisterScreen />} />
+            <Route path="/signin" element={<SignInScreen />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </ContextUser.Provider>

@@ -1,9 +1,9 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Grid, TextField, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import UtilityBtn from "../Components/UtilityBtn";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ContextUser } from "../ContextUser";
+import Logo from "../assets/logo.svg"
 
 function SignInScreen() {
   const { usersSignInStatus, signUserInOut, setUsersName } =
@@ -43,35 +43,46 @@ function SignInScreen() {
   return (
     <Grid
       container
-      alignContent="center"
-      sx={{ minHeight: "100vh", marginTop: "15%" }}
-      direction={"column"}
-      rowGap="10px"
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
     >
-      <Grid item xs="6" sx={{ color: "red" }}>
-        {errorMsg}
-      </Grid>
-      <TextField
-        placeholder="Email"
-        onChange={(e) => {
-          setUsersEmail(e.target.value);
-        }}
-      />
-      <TextField
-        placeholder="Password"
-        onChange={(e) => {
-          setUsersPass(e.target.value);
-        }}
-        type="password"
-      />
-      <Button variant="ctaMain"
-        onClick={() => {
-          sendInformationToApi();
-        }}
-      >
-        Log In
-      </Button>
-      <Button sx={{color:"#222"}}>Create Account</Button>
+      <img src={Logo} alt="crocodile in cirlce" style={{width: "50px"}} />
+      <Typography variant="titleText" sx={{padding: "20px"}}>Sign in to Langregate</Typography>
+      <div className="SignInForm">
+        <TextField
+          placeholder="Email"
+          onChange={(e) => {
+            setUsersEmail(e.target.value);
+          }}
+          sx={{ backgroundColor: "#fff" }}
+          variant="outlined"
+          label="Email"
+        />
+        <TextField
+          placeholder="Password"
+          onChange={(e) => {
+            setUsersPass(e.target.value);
+          }}
+          type="password"
+          sx={{ backgroundColor: "#fff" }}
+          variant="outlined"
+          label="Password"
+        />
+        <Button
+          variant="ctaMain"
+          onClick={() => {
+            sendInformationToApi();
+          }}
+        >
+          Log In
+        </Button>
+        <Link to="/signup/new">Don't have an account?</Link>
+      </div>
     </Grid>
   );
 }

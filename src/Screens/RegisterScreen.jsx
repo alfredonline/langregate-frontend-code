@@ -158,7 +158,7 @@ function RegisterScreen() {
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
-            width: "350px"
+            width: "350px",
           }}
         >
           {usersInterests.map((item) => {
@@ -170,7 +170,11 @@ function RegisterScreen() {
           })}
         </Grid>
         <Grid item>
-          <Button variant="ctaMain" onClick={() => sendInformationToApi()} sx={{width: "300px"}}>
+          <Button
+            variant="ctaMain"
+            onClick={() => sendInformationToApi()}
+            sx={{ width: "300px" }}
+          >
             {userCanGoToLogin ? (
               <Link to="/SignIn" className="removeUnderlineNotAffectText">
                 Log in
@@ -182,6 +186,13 @@ function RegisterScreen() {
             )}
           </Button>
         </Grid>
+        {!userCanGoToLogin && (
+          <Grid item>
+            <Link to="/SignIn">
+              Already have an account? Sign in here.
+            </Link>
+          </Grid>
+        )}
       </Grid>
     </Grid>
   );
