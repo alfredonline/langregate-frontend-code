@@ -5,6 +5,7 @@ import { Autocomplete } from "@mui/material";
 import languages from "../Data/LanguagesArr";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import GenreArr from "../Data/GenreArrWithCodes";
 
 function RegisterScreen() {
   const potentialInterests = [
@@ -33,20 +34,28 @@ function RegisterScreen() {
   const [usersPreferredLang, setUsersPreferredLang] = useState("");
   const [usersInterests, setUsersInterests] = useState([]);
   const [userCanGoToLogin, setUserCanGoToLogin] = useState(false);
+  const [userGenres, setUserGenres] = useState([]);
   const [errMessage, setErrMessage] = useState("");
+
+  // eventually refactor these two functions into one function
 
   const updateUsersInterests = (interest) => {
     setUsersInterests((usersInterests) => [...usersInterests, interest]);
   };
 
+  const updateUserGenres = (genre) => {
+    setUserGenres((userGenres) => [...userGenres, genre]);
+  };
+
   const sendInformationToApi = async () => {
     const infoSent = await axios
-      .post("https://api.langregate.com/api/register", {
+      .post("/api/register", {
         name: `${usersName}`,
         email: `${usersEmail}`,
         password: `${usersPassword}`,
         interests: `${usersInterests}`,
         usersTL: `${usersPreferredLang}`,
+        genres: `${userGenres}`,
       })
       .catch((err) => {
         console.log(err);
@@ -170,6 +179,37 @@ function RegisterScreen() {
           })}
         </Grid>
         <Grid item>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={GenreArr}
+            sx={{ width: 300 }}
+            onChange={(e) => {
+              updateUserGenres(e.target.lastChild.data);
+            }}
+            renderInput={(params) => (
+              <TextField {...params} label="Types of movies and series I like" required />
+            )}
+          />
+        </Grid>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "10px",
+            width: "350px",
+          }}
+        >
+          {userGenres.map((item) => {
+            return (
+              <div className="interest" key={item}>
+                {item}
+              </div>
+            );
+          })}
+        </Grid>
+        <Grid item>
           <Button
             variant="ctaMain"
             onClick={() => sendInformationToApi()}
@@ -188,9 +228,7 @@ function RegisterScreen() {
         </Grid>
         {!userCanGoToLogin && (
           <Grid item>
-            <Link to="/SignIn">
-              Already have an account? Sign in here.
-            </Link>
+            <Link to="/SignIn">Already have an account? Sign in here.</Link>
           </Grid>
         )}
       </Grid>

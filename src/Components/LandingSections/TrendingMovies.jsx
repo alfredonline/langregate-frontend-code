@@ -6,10 +6,9 @@ import axios from "axios";
 import LoadingScreen from "../../Screens/LoadingScreen";
 import MediaCard from "../Cards/MediaCard";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
-function TrendingMovies({ region, country, lang }) {
+function TrendingMovies({ region, country, lang, isRegisteredUser }) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const matches = useMediaQuery("max-width:600px)");
@@ -28,10 +27,12 @@ function TrendingMovies({ region, country, lang }) {
     getTrendingMovies();
   }, []);
 
+  // had to include the isregistereduser to avoid problems on the backend with getting country codes etc. this will be resolved in future update
+
   return (
     <Grid sx={{ minHeight: "200px" }}>
       <Title
-        mainHeading={`Trending Movies in ${country} in ${lang}`}
+        mainHeading={isRegisteredUser ? `Trending movies in ${lang}` : `Trending Movies in ${country} in ${lang}`}
         icon={<TrendingUpIcon />}
         secondHeading={
           "Langregate makes it easy to find new, interesting content in a variety of languages."

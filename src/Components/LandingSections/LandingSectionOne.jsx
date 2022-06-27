@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { ButtonGroup, Typography, Button } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function LandingSectionOne() {
   const arrOfImg = [
@@ -12,7 +12,7 @@ function LandingSectionOne() {
   ];
 
   return (
-    <Grid container sx={{ width: "100%", marginTop: "100px"}}>
+    <Grid container sx={{ width: "100%", marginTop: "100px" }}>
       <Grid container lg="6" sm="12" gap="20px">
         <Grid item sm="12">
           <Typography variant="textLgBoldImportant">
@@ -26,23 +26,22 @@ function LandingSectionOne() {
           </Typography>
         </Grid>
         <Grid item sm="12" sx={{ display: "flex" }} gap="10px">
-          <Button variant="ctaMain" disableElevation >
+          <Button variant="ctaMain" disableElevation>
             <Link to="/signup/new" className="removeUnderlineNotAffectText">
-            Create Account
+              Create Account
             </Link>
           </Button>
-          <Button variant="ctaSub" startIcon={<LoginIcon />} className="removeUnderline">
-            Log In
+          <Button variant="ctaSub" startIcon={<LoginIcon />}>
+            <Link
+              to="/signin"
+              style={{ color: "#222", textDecoration: "none" }}
+            >
+              Log In
+            </Link>
           </Button>
         </Grid>
       </Grid>
-      <Grid
-        container
-        lg="6"
-        sm="12"
-        gap="10px"
-        justifyContent="right"
-      >
+      <Grid container lg="6" sm="12" gap="10px" justifyContent="right">
         <Grid
           item
           lg="9"
