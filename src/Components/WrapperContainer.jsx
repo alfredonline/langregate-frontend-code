@@ -4,7 +4,7 @@ import React from "react";
 
 function WrapperContainer({ children }) {
   return (
-    <Container maxWidth="lg" sx={{ padding: 12 }}>
+    <Container maxWidth="lg" sx={{ paddingTop: 12 }}>
       {children}
     </Container>
   );

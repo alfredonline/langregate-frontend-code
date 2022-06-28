@@ -25,11 +25,23 @@ function AboutPage() {
 
   return (
     <WrapperContainer>
-      <Title  mainHeading="About Langregate" secondHeading="Learn more about what makes Langregate run" />
-      <Grid container direction="column" spacing="40px" sx={{marginTop: "20px"}}>
+      <Title
+        mainHeading="About Langregate"
+        secondHeading="Learn more about what makes Langregate run"
+      />
+      <Grid
+        container
+        direction="column"
+        spacing="40px"
+        sx={{ marginTop: "20px" }}
+      >
         {aboutItems.map((item) => {
           return (
-            <Grid item sx={{display: "flex", flexDirection: "column", gap: "20px"}} key={item.title}>
+            <Grid
+              item
+              sx={{ display: "flex", flexDirection: "column", gap: "20px" }}
+              key={item.title}
+            >
               <Typography variant="titleText">{item.title}</Typography>
               <Typography variant="textMdSemiBoldSemiImportant">
                 {item.desc}

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 function SelectItemBtn(props) {
-  const [isClicked, setIsClicked] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
 
   const triggerParentFunction = () => {
     setIsClicked(!isClicked);

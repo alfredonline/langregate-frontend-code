@@ -98,10 +98,11 @@ function MediaCard({ bg, link, typeOfContent, data, deleteActivate, widthPassedI
       <Link to={`${link}`} className="removeUnderlineNotAffectText">
         <Paper
           sx={{
-            width: widthPassedIn ? widthPassedIn : "200px",
-            height: heightPassedIn ? heightPassedIn : "280px",
+            width: widthPassedIn ? widthPassedIn : "160px",
+            height: heightPassedIn ? heightPassedIn : "230px",
             backgroundImage: "url(" + `${bg}` + ")",
             position: "relative",
+            borderRadius: "8px"
           }}
           className="bgCover"
         >

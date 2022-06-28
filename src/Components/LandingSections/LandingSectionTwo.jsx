@@ -28,7 +28,7 @@ function LandingSectionTwo() {
   }, []);
 
   return (
-    <Grid sx={{ minHeight: "200px" }}>
+    <Grid sx={{ minHeight: "200px"}}>
       <Title
         mainHeading={"Spanish movies we recommend."}
         secondHeading={

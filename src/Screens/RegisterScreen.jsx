@@ -49,7 +49,7 @@ function RegisterScreen() {
 
   const sendInformationToApi = async () => {
     const infoSent = await axios
-      .post("/api/register", {
+      .post("https://api.langregate.com/api/register", {
         name: `${usersName}`,
         email: `${usersEmail}`,
         password: `${usersPassword}`,

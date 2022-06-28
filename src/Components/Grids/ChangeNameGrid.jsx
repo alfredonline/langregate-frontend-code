@@ -34,9 +34,14 @@ function ChangeNameGrid() {
   };
 
   const changeNameGrid = (
-    <Grid container xs="12" direction="column" gap="20px">
+    <Grid
+      container
+      xs="12"
+      direction="column"
+      gap="20px"
+    >
       <Grid item sx={{ width: "400px" }}>
-        <Typography variant="semiImportantText">Change Name</Typography>
+        <Typography variant="titleText">Change Name</Typography>
       </Grid>
       <Grid item>
         <TextField

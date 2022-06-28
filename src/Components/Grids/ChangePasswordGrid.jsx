@@ -35,7 +35,7 @@ function ChangePasswordGrid() {
     <Grid container xs="12" direction="column" gap="20px">
       <Grid item>
         {" "}
-        <Typography variant="semiImportantText">Change Password</Typography>
+        <Typography variant="titleText">Change Password</Typography>
       </Grid>
       <Grid item>
         <TextField

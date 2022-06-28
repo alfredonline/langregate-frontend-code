@@ -18,6 +18,7 @@ import LogoutUserPage from "./Screens/LogoutUserPage";
 import AboutPage from "./Screens/AboutPage";
 import RegisterScreen from "./Screens/RegisterScreen";
 import ErrorPage from "./Screens/ErrorPage";
+import CookieBar from "./Components/CookieBar";
 
 const ctaColour = "#4615b2";
 
@@ -138,9 +139,15 @@ function App() {
                 path="/"
                 element={
                   userIsSignedIn ? (
-                    <LandingRegisteredUser />
+                    <>
+                      <LandingRegisteredUser />
+                      <CookieBar />
+                    </>
                   ) : (
-                    <LandingUnregisteredUser />
+                    <>
+                      <LandingUnregisteredUser />
+                      <CookieBar />
+                    </>
                   )
                 }
               />

@@ -21,9 +21,7 @@ function SettingsScreen() {
     async function getAllData() {
       let checkToken = await checkIfTokenIsValid();
       if (checkToken === "USER CAN PASS") {
-        const data = await axios.get(
-          "https://api.langregate.com/api/getAllInfoOfUser"
-        );
+        const data = await axios.get("https://api.langregate.com/api/getAllInfoOfUser");
         if (data) {
           setUserInfo(data.data);
           setNewTargetLanguage(data.targetLanguage);
@@ -38,22 +36,27 @@ function SettingsScreen() {
     {
       item: "Change Password",
       link: "password",
+      isActive: false,
     },
     {
       item: "Change Name",
       link: "name",
+      isActive: false,
     },
     {
       item: "Change Interests",
       link: "interests",
+      isActive: false,
     },
     {
       item: "Change Target Language",
       link: "language",
+      isActive: false,
     },
     {
       item: "Delete Account",
       link: "account",
+      isActive: false,
     },
   ];
 
@@ -70,7 +73,11 @@ function SettingsScreen() {
                 >
                   <Link
                     to={`/settings/${item.link}`}
-                    className="removeUnderline"
+                    className={
+                      item.isActive
+                        ? "isActiveClass removeUnderline"
+                        : "removeUnderline"
+                    }
                   >
                     {item.item}
                   </Link>

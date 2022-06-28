@@ -307,3 +307,15 @@
   gap: 20px;
   flex-wrap: wrap;
 }
+
+.CookieBar {
+  position: sticky;
+  bottom: 0px;
+  min-height: 20vh;
+  padding: 40px;
+  background-color: #fff;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

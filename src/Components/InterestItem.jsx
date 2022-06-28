@@ -6,7 +6,13 @@ function InterestItem({ interest }) {
 
   return (
     <Paper
-      sx={{ padding: "12px", cursor: "Pointer", backgroundColor: isSelected ? "#f2f2f2" : "#fff" }}
+      sx={{
+        padding: "12px",
+        cursor: "Pointer",
+        backgroundColor: isSelected ? "#f2f2f2" : "#fff",
+        border: "1px solid #e7e7e7",
+        boxShadow: "none"
+      }}
       onClick={() => setIsSelected(true)}
     >
       {interest}

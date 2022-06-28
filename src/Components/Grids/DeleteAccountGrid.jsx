@@ -21,11 +21,14 @@ function DeleteAccountGrid({ userInfoPassedInEmail }) {
 
     if (checkToken === "USER CAN PASS") {
       if (usersEmail === userInfoPassedInEmail) {
-        const accToDelete = await axios.post("https://api.langregate.com/api/deleteAccount", {
-          usersEmail: usersEmail,
-        });
+        const accToDelete = await axios.post(
+          "https://api.langregate.com/api/deleteAccount",
+          {
+            usersEmail: usersEmail,
+          }
+        );
         sendToLandingPage();
-        signUserInOut(false)
+        signUserInOut(false);
       }
     }
   };
@@ -33,7 +36,7 @@ function DeleteAccountGrid({ userInfoPassedInEmail }) {
   const deleteAccountGrid = (
     <Grid container xs="12" direction="column" gap="20px">
       <Grid item sx={{ width: "400px" }}>
-        <Typography variant="semiImportantText">DELETE ACCOUNT</Typography>
+        <Typography variant="titleText">DELETE ACCOUNT</Typography>
       </Grid>
       <Grid item>
         <Typography variant="errorText">
@@ -41,9 +44,12 @@ function DeleteAccountGrid({ userInfoPassedInEmail }) {
           your account is deleted, it is gone for good.
         </Typography>
       </Grid>
-      <Grid item variant="errorText">
-        Enter the email address associated with your account to delete your
-        account for good.
+      <Grid item>
+        <Typography variant="textMdSemiBoldSemiImportant">
+          {" "}
+          Enter the email address associated with your account to delete your
+          account for good.
+        </Typography>
       </Grid>
       <Grid item>
         <TextField
@@ -55,10 +61,7 @@ function DeleteAccountGrid({ userInfoPassedInEmail }) {
         />
       </Grid>
       <Grid item>
-        <Button
-          onClick={() => deleteAccountForUser()}
-          variant="ctaMain"
-        >
+        <Button onClick={() => deleteAccountForUser()} variant="ctaMain">
           DELETE ACCOUNT
         </Button>
       </Grid>

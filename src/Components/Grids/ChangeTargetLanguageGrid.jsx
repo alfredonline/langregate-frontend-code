@@ -21,7 +21,7 @@ function ChangeTargetLanguageGrid() {
   const changeTargetLanguageGrid = (
     <Grid container xs="12" direction="column" gap="20px">
       <Grid item>
-        <Typography variant="semiImportantText">
+        <Typography variant="titleText">
           Update Target Language
         </Typography>
       </Grid>
