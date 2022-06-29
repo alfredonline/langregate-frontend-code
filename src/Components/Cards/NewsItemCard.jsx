@@ -1,12 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Card from "@mui/material/Card";
-import {
-  Button,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Grid,
-} from "@mui/material";
+import { CardContent, CardMedia, Grid } from "@mui/material";
 import { Typography } from "@mui/material";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
@@ -15,7 +9,8 @@ import axios from "axios";
 import ArticleIcon from "@mui/icons-material/Article";
 import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
-import { Link } from "react-router-dom";
+import { ContextUser } from "../../ContextUser";
+
 
 function NewsItemCard({
   title,
@@ -23,38 +18,51 @@ function NewsItemCard({
   overview,
   id,
   deleteMode,
-  lang,
   credit,
   hideBm,
-  fullObjOfArticle,
 }) {
   const [articleSaved, setArticleSaved] = useState(false);
   const [articleDeleted, setArticleDeleted] = useState(false);
+  const { usersSignInStatus, setShowCreateSignInModal } = useContext(ContextUser);
 
   const saveItemToUsersCollection = async () => {
-    let checkToken = await checkIfTokenIsValid();
-    if (checkToken === "USER CAN PASS") {
-      const sentData = await axios.post("https://api.langregate.com/api/addArticleToUsersCollection", {
-        content: {
-          newsHeader: title,
-          newsMedia: media,
-          newsOverview: overview,
-          newsID: id,
-          credit: credit,
-        },
-      });
+    if (!usersSignInStatus) {
+      setShowCreateSignInModal(true);
+    } else {
+      let checkToken = await checkIfTokenIsValid();
+      if (checkToken === "USER CAN PASS") {
+        const sentData = await axios.post(
+          "https://api.langregate.com/api/addArticleToUsersCollection",
+          {
+            content: {
+              newsHeader: title,
+              newsMedia: media,
+              newsOverview: overview,
+              newsID: id,
+              credit: credit,
+            },
+          }
+        );
 
-      setArticleSaved(true);
+        setArticleSaved(true);
+      }
     }
   };
 
   const deleteArticleFromUsersCollection = async () => {
-    let checkToken = await checkIfTokenIsValid();
-    if (checkToken === "USER CAN PASS") {
-      await axios.post("https://api.langregate.com/api/deleteArticleForUser", {
-        id: id,
-      });
-      setArticleDeleted(true);
+    if (!usersSignInStatus) {
+      setShowCreateSignInModal(true);
+    } else {
+      let checkToken = await checkIfTokenIsValid();
+      if (checkToken === "USER CAN PASS") {
+        await axios.post(
+          "https://api.langregate.com/api/deleteArticleForUser",
+          {
+            id: id,
+          }
+        );
+        setArticleDeleted(true);
+      }
     }
   };
 

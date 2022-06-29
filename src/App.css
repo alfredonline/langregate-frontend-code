@@ -270,11 +270,28 @@
   display: none;
 }
 
+.apiCreditContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .apiCreditBox {
-  min-height: 300px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .apiCreditBox {
+    width: 100%;
+  }
+}
+
+.apiCreditText {
+  height: 100px;
+  overflow: hidden;
 }
 
 .registerScreenText {
@@ -308,8 +325,16 @@
   flex-wrap: wrap;
 }
 
+.filterCookieBar {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.437);
+  position: fixed;
+  top: 0px;
+}
+
 .CookieBar {
-  position: sticky;
+  position: fixed;
   bottom: 0px;
   min-height: 20vh;
   padding: 40px;

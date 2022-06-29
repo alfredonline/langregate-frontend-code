@@ -19,6 +19,7 @@ import AboutPage from "./Screens/AboutPage";
 import RegisterScreen from "./Screens/RegisterScreen";
 import ErrorPage from "./Screens/ErrorPage";
 import CookieBar from "./Components/CookieBar";
+import IsNotSignedInModal from "./Components/IsNotSignedInModal";
 
 const ctaColour = "#4615b2";
 
@@ -94,22 +95,26 @@ const theme = createTheme({
   },
 });
 
-function Layout() {
-  return (
-    <div>
-      <Nav />
-      <div className="container">
-        <Outlet />
-      </div>
-      <Footer />
-    </div>
-  );
-}
-
 function App() {
   const [userIsSignedIn, setUserIsSignedIn] = useState(false);
   const [usersName, setUsersName] = useState("");
   const isLoggedIn = localStorage.getItem("USERISLOGGEDIN");
+  const [showCreateSignInModal, setShowCreateSignInModal] = useState(false);
+
+  function Layout() {
+    return (
+      <div>
+        <Nav />
+        <div className="container">
+          <>
+            <Outlet />
+            {showCreateSignInModal && <IsNotSignedInModal />}
+          </>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -130,11 +135,13 @@ function App() {
             signUserInOut: setUserIsSignedIn,
             setUsersName: setUsersName,
             usersName: usersName,
+            showCreateSignInModal: showCreateSignInModal,
+            setShowCreateSignInModal: setShowCreateSignInModal,
           }}
         >
           <Routes>
             <Route path="/logoutUser" element={<LogoutUserPage />} />
-            <Route path="/" element={<Layout />}>
+            <Route path="/" element={[<Layout />]}>
               <Route
                 path="/"
                 element={

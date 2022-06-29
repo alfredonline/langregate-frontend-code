@@ -22,7 +22,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import AddIcon from "@mui/icons-material/Add";
 
 function Nav() {
-  const { usersSignedInStatus, signUserInOut } = useContext(ContextUser);
+  const { usersSignedInStatus } = useContext(ContextUser);
 
   const navigate = useNavigate();
 

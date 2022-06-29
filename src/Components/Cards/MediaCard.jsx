@@ -6,47 +6,68 @@ import { Link } from "react-router-dom";
 import { checkIfTokenIsValid } from "../../Functions/CheckIfTokenIsValid";
 import axios from "axios";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
+import { useContext } from "react";
+import { ContextUser } from "../../ContextUser";
 
-function MediaCard({ bg, link, typeOfContent, data, deleteActivate, widthPassedIn, heightPassedIn }) {
+function MediaCard({
+  bg,
+  link,
+  typeOfContent,
+  data,
+  deleteActivate,
+  widthPassedIn,
+  heightPassedIn,
+}) {
+  const { usersSignInStatus, setShowCreateSignInModal } =
+    useContext(ContextUser);
+
   bg = `https://image.tmdb.org/t/p/w1280/${bg}`;
 
   const [savingContent, setSavingContent] = useState(false);
   const [contentSaved, setContentSaved] = useState(false);
-  const [isDeleted, setIsDeleted] = useState(false)
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const saveItemToUsersCollection = async () => {
-    let checkToken = await checkIfTokenIsValid();
-    if (checkToken === "USER CAN PASS") {
-      setSavingContent(true);
-      const sentData = await axios.post(
-        `https://api.langregate.com/api/add${
-          typeOfContent === "tv" ? "Series" : "Movie"
-        }ToUsersCollection`,
-        { data: data }
-      );
-      setSavingContent(false);
-      setContentSaved(true);
+    if (!usersSignInStatus) {
+      setShowCreateSignInModal(true);
+    } else {
+      let checkToken = await checkIfTokenIsValid();
+      if (checkToken === "USER CAN PASS") {
+        setSavingContent(true);
+        const sentData = await axios.post(
+          `https://api.langregate.com/api/add${
+            typeOfContent === "tv" ? "Series" : "Movie"
+          }ToUsersCollection`,
+          { data: data }
+        );
+        setSavingContent(false);
+        setContentSaved(true);
+      }
     }
   };
 
   const deleteContent = async () => {
-    let checkToken = await checkIfTokenIsValid();
+    if (!usersSignInStatus) {
+      setShowCreateSignInModal(true);
+    } else {
+      let checkToken = await checkIfTokenIsValid();
 
-    if (checkToken === "USER CAN PASS") {
-      if (typeOfContent === "tv") {
-        const contentDelete = await axios.post(
-          `https://api.langregate.com/api/deleteSeriesForUser`,
-          { seriesToDelete: data.name }
-        );
-      } else if (typeOfContent === "Movie") {
-        const contentDelete = await axios.post(
-          `https://api.langregate.com/api/deleteMovieForUser`,
-          { movieToDelete: data.original_title }
-        );
+      if (checkToken === "USER CAN PASS") {
+        if (typeOfContent === "tv") {
+          const contentDelete = await axios.post(
+            `https://api.langregate.com/api/deleteSeriesForUser`,
+            { seriesToDelete: data.name }
+          );
+        } else if (typeOfContent === "Movie") {
+          const contentDelete = await axios.post(
+            `https://api.langregate.com/api/deleteMovieForUser`,
+            { movieToDelete: data.original_title }
+          );
+        }
       }
-    }
 
-    setIsDeleted(true)
+      setIsDeleted(true);
+    }
   };
 
   return (
@@ -102,7 +123,7 @@ function MediaCard({ bg, link, typeOfContent, data, deleteActivate, widthPassedI
             height: heightPassedIn ? heightPassedIn : "230px",
             backgroundImage: "url(" + `${bg}` + ")",
             position: "relative",
-            borderRadius: "8px"
+            borderRadius: "8px",
           }}
           className="bgCover"
         >

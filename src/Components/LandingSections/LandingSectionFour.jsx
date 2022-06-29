@@ -15,7 +15,7 @@ function LandingSectionFour() {
           return (
             <div className="apiCreditBox">
               <Typography variant="titleText">{apiName}</Typography>
-              <Typography variant="textMdSemiBoldSemiImportant">
+              <Typography variant="textMdSemiBoldSemiImportant" className="apiCreditText">
                 {text}
               </Typography>
               <Button variant="ctaMain" sx={{width: "200px"}}>

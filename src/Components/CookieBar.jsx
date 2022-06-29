@@ -20,24 +20,26 @@ function CookieBar() {
 
   if (showBar) {
     return (
-      <div className="CookieBar">
-        <span>
-          Langregate uses cookies purely for the process of logging in and for
-          features exclusive to users who have an account with Langregate. By
-          continuing to use the site, you are giving Langregate permission to
-          store cookies. No data whatsoever is collected by Langregate.
-        </span>
-        <Button
-          variant="ctaMain"
-          style={{
-            width: matches ? "80%" : "20%",
-            margin: "0 auto",
-            marginTop: "20px",
-          }}
-          onClick={() => updateLsAndState()}
-        >
-          I understand
-        </Button>
+      <div className="filterCookieBar">
+        <div className="CookieBar">
+          <span>
+            Langregate uses cookies purely for the process of logging in and for
+            features exclusive to users who have an account with Langregate. By
+            continuing to use the site, you are giving Langregate permission to
+            store cookies. No data whatsoever is collected by Langregate.
+          </span>
+          <Button
+            variant="ctaMain"
+            style={{
+              width: matches ? "80%" : "20%",
+              margin: "0 auto",
+              marginTop: "20px",
+            }}
+            onClick={() => updateLsAndState()}
+          >
+            I understand
+          </Button>
+        </div>
       </div>
     );
   } else {

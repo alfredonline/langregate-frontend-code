@@ -1,26 +1,37 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { ContextUser } from "../../ContextUser";
 
 function VocabularyCard({ word, lang }) {
   const [wordSaved, setWordSaved] = useState(false);
 
+
+  const { setShowCreateSignInModal , usersSignInStatus} = useContext(ContextUser)
+
   const sendItemToUsersCollection = async () => {
-    var today = new Date();
-    var date =
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      "-" +
-      today.getDate();
+    if (!usersSignInStatus) {
+      setShowCreateSignInModal(true);
+    } else {
+      var today = new Date();
+      var date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
 
-    const sendData = await axios.post("https://api.langregate.com/api/addVocabToUsersCollection", {
-      originalWord: word,
-      date: date,
-      language: lang,
-    });
+      const sendData = await axios.post(
+        "https://api.langregate.com/api/addVocabToUsersCollection",
+        {
+          originalWord: word,
+          date: date,
+          language: lang,
+        }
+      );
 
-    setWordSaved(true);
+      setWordSaved(true);
+    }
   };
 
   return (
