@@ -7,10 +7,11 @@ function VocabularyCard({ word, lang }) {
   const [wordSaved, setWordSaved] = useState(false);
 
 
-  const { setShowCreateSignInModal , usersSignInStatus} = useContext(ContextUser)
+  const { setShowCreateSignInModal , usersSignedInStatus} = useContext(ContextUser)
+
 
   const sendItemToUsersCollection = async () => {
-    if (!usersSignInStatus) {
+    if (!usersSignedInStatus) {
       setShowCreateSignInModal(true);
     } else {
       var today = new Date();

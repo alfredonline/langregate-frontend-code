@@ -7,14 +7,14 @@ import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 function LogoutUserPage() {
   const navigate = useNavigate();
 
-  const { usersSignInStatus, signUserInOut, setUsersName } =
+  const { usersSignedInStatus, signUserInOut, setUsersName } =
     useContext(ContextUser);
 
   const sendToLandingPage = () => {
     navigate("/");
   };
 
-  if (usersSignInStatus) {
+  if (usersSignedInStatus) {
     sendToLandingPage();
   }
 

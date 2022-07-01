@@ -34,9 +34,8 @@ function LandingRegisteredUser() {
   const [showUserGenres, setShowUserGenres] = useState(false);
 
   const fetchArticles = async (interest) => {
-    console.log(interest);
     const newArticles = await axios
-      .get(`/news/${targetLanguage}/${interest}`)
+      .get(`https://api.langregate.com/news/${targetLanguage}/${interest}`)
       .catch((err) => {
         console.log(err);
       });

@@ -119,8 +119,9 @@ function App() {
   useEffect(() => {
     if (isLoggedIn) {
       setUserIsSignedIn(true);
+      setShowCreateSignInModal(false);
     }
-  });
+  }, []);
 
   const ProtectedRoutes = () => {
     return isLoggedIn ? <Outlet /> : <SignInScreen />;

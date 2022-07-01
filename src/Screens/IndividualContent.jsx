@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import WrapperContainer from "../Components/WrapperContainer";
 import { Typography } from "@mui/material";
 import LoadingScreen from "./LoadingScreen";
 import axios from "axios";
-import { checkIfTokenIsValid } from "../Functions/CheckIfTokenIsValid";
 import VocabularyCard from "../Components/Cards/VocabularyCard";
 import CenterWrapper from "../Components/CenterWrapper";
+import { ContextUser } from "../ContextUser";
+
+
 
 function IndividualContent({ typeOfContent }) {
   let { id } = useParams();
@@ -17,14 +19,12 @@ function IndividualContent({ typeOfContent }) {
 
   async function FetchThenRenderTranslation(ogLang, overview) {
     let request = await axios.get(
-      `https://api.langregate.com/translate-description/${ogLang}/${
-        overview
-      }`
+      `/translate-description/${ogLang}/${overview}`
     );
 
     const arr = request.data.split(" ").map((item) => {
       return (
-        <VocabularyCard word={item} lang={data?.original_language} key={item}/>
+        <VocabularyCard word={item} lang={data?.original_language} key={item} />
       );
     });
 
@@ -36,11 +36,14 @@ function IndividualContent({ typeOfContent }) {
   useEffect(() => {
     async function callData() {
       setIsLoading(true);
-      let request = await axios.get(`https://api.langregate.com/collect-content/${typeOfContent}/${id}`);
+      let request = await axios.get(`usersSignedInStatus/collect-content/${typeOfContent}/${id}`);
       setData(request.data);
       setIsLoading(false);
       if (request.data.original_language) {
-        await FetchThenRenderTranslation(request.data.original_language, request.data.overview);
+        await FetchThenRenderTranslation(
+          request.data.original_language,
+          request.data.overview
+        );
       }
     }
 
@@ -49,7 +52,6 @@ function IndividualContent({ typeOfContent }) {
 
   const [userWantsToSeeContentEnglish, setUserWantsToSeeContentEnglish] =
     useState(false);
-
 
   if (
     (data &&
@@ -90,7 +92,6 @@ function IndividualContent({ typeOfContent }) {
   const bgImageLong = `https://www.themoviedb.org/t/p/w1280/${
     data && data.backdrop_path
   }`;
-
 
   const returnOverview = () => {
     return (

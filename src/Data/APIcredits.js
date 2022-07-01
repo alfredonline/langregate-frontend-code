@@ -1,6 +1,6 @@
 const arrCredits = [
   {
-    apiName: "TMBD",
+    apiName: "TMDB",
     btn: "https://www.themoviedb.org/",
     text: "All film-related and series-related metadata used in Langregate, including actor, director and studio names, synopses, release dates, trailers and poster art is supplied by The Movie Database (TMDB). Langregate uses the TMDB API but is not endorsed or certified by TMDB.",
   },

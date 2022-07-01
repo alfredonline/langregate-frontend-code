@@ -23,10 +23,10 @@ function NewsItemCard({
 }) {
   const [articleSaved, setArticleSaved] = useState(false);
   const [articleDeleted, setArticleDeleted] = useState(false);
-  const { usersSignInStatus, setShowCreateSignInModal } = useContext(ContextUser);
+  const { usersSignedInStatus, setShowCreateSignInModal } = useContext(ContextUser);
 
   const saveItemToUsersCollection = async () => {
-    if (!usersSignInStatus) {
+    if (!usersSignedInStatus) {
       setShowCreateSignInModal(true);
     } else {
       let checkToken = await checkIfTokenIsValid();
@@ -50,7 +50,7 @@ function NewsItemCard({
   };
 
   const deleteArticleFromUsersCollection = async () => {
-    if (!usersSignInStatus) {
+    if (!usersSignedInStatus) {
       setShowCreateSignInModal(true);
     } else {
       let checkToken = await checkIfTokenIsValid();

@@ -18,7 +18,7 @@ function MediaCard({
   widthPassedIn,
   heightPassedIn,
 }) {
-  const { usersSignInStatus, setShowCreateSignInModal } =
+  const { usersSignedInStatus, setShowCreateSignInModal } =
     useContext(ContextUser);
 
   bg = `https://image.tmdb.org/t/p/w1280/${bg}`;
@@ -28,7 +28,7 @@ function MediaCard({
   const [isDeleted, setIsDeleted] = useState(false);
 
   const saveItemToUsersCollection = async () => {
-    if (!usersSignInStatus) {
+    if (!usersSignedInStatus) {
       setShowCreateSignInModal(true);
     } else {
       let checkToken = await checkIfTokenIsValid();
@@ -47,7 +47,7 @@ function MediaCard({
   };
 
   const deleteContent = async () => {
-    if (!usersSignInStatus) {
+    if (!usersSignedInStatus) {
       setShowCreateSignInModal(true);
     } else {
       let checkToken = await checkIfTokenIsValid();

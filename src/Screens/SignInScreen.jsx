@@ -6,12 +6,11 @@ import { ContextUser } from "../ContextUser";
 import Logo from "../assets/logo.svg"
 
 function SignInScreen() {
-  const { usersSignInStatus, signUserInOut, setUsersName } =
+  const { usersSignedInStatus, signUserInOut, setUsersName } =
     useContext(ContextUser);
 
   const [usersEmail, setUsersEmail] = useState("");
   const [usersPass, setUsersPass] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
 
   const navigate = useNavigate();
 
@@ -35,7 +34,7 @@ function SignInScreen() {
   };
 
   useEffect(() => {
-    if (usersSignInStatus) {
+    if (usersSignedInStatus) {
       sendToLandingPage();
     }
   }, []);
